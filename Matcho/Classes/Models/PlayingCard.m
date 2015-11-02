@@ -63,6 +63,10 @@
 	}
 	
 	if (self.rank == card.rank) {
+        if (([@[@"♣", @"♠"] containsObject:self.suit] && [@[@"♣", @"♠"] containsObject:card.suit])||
+            ([@[@"♦", @"♥"] containsObject:self.suit] && [@[@"♦", @"♥"] containsObject:card.suit])){
+            return 6;
+        }
 		return 4;
 	}
 	

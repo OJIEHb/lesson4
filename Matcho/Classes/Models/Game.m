@@ -81,7 +81,7 @@ static const int COST_TO_CHOOSE = 1;
 					card.matched = YES;
 					for (Card *otherCard in chosenCards) {
 						otherCard.matched = YES;
-                        self.gameLog = [NSString stringWithFormat:@"Cards%@ and%@ are match, you got %i points",card, otherCard, (matchScore * MATCH_BONUS)];
+                        self.gameLog = [NSString stringWithFormat:@"Cards %@ and %@ are match, you got %i points",card, otherCard, (matchScore * MATCH_BONUS)];
 					}
 				} else {
 					int penalty = MISMATCH_PENALTY;
@@ -91,7 +91,7 @@ static const int COST_TO_CHOOSE = 1;
 					card.chosen = YES;
 					for (Card *otherCard in chosenCards) {
 						otherCard.chosen = NO;
-                        self.gameLog = [NSString stringWithFormat:@"Cards%@ and%@ are do not match, you lose %i points", card, otherCard, MISMATCH_PENALTY];
+                        self.gameLog = [NSString stringWithFormat:@"Cards %@ and %@ are do not match, you lose %i points", card, otherCard, MISMATCH_PENALTY];
 					}
 				}
 			} else {
