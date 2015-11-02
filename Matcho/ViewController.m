@@ -14,6 +14,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) Game *game;
+@property (weak, nonatomic) IBOutlet UILabel *currentScore;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
 @end
@@ -41,10 +42,9 @@
 	for (UIButton *cardButton in self.cardButtons) {
 		NSUInteger cardIndex = [self.cardButtons indexOfObject:cardButton];
 		Card *card = [self.game cardAtIndex:cardIndex];
-		
 		[cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
-		[cardButton setBackgroundImage:[self backgroundImageForCard:card]
-							  forState:UIControlStateNormal];
+		[cardButton setBackgroundImage:[self backgroundImageForCard:card]forState:UIControlStateNormal];
+        self.currentScore.text = [NSString stringWithFormat:@"Your score : %ld", (long)self.game.score];
 		cardButton.enabled = !card.isMatched;
 	}
 }
