@@ -12,6 +12,7 @@
 
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, strong) NSMutableArray *cards;
+@property (nonatomic, strong) NSString *gameLog;
 
 @end
 
@@ -39,6 +40,10 @@
 	return self;
 }
 
+-(NSString *)gameLog{
+    return _gameLog;
+}
+
 
 - (NSMutableArray *)cards {
 	if (!_cards) _cards = [[NSMutableArray alloc] init];
@@ -57,6 +62,7 @@ static const int COST_TO_CHOOSE = 1;
 	if (!card.isMatched) {
 		if (card.isChosen) {
 			card.chosen = NO;
+            self.gameLog = [NSString stringWithFormat:@"Close card %@, the score remained unchanged",card];
 		} else {
 			NSMutableArray *chosenCards = [[NSMutableArray alloc] init];
 			
@@ -75,6 +81,7 @@ static const int COST_TO_CHOOSE = 1;
 					card.matched = YES;
 					for (Card *otherCard in chosenCards) {
 						otherCard.matched = YES;
+                        self.gameLog = [NSString stringWithFormat:@"Cards%@ and%@ are match, you got %i points",card, otherCard, (matchScore * MATCH_BONUS)];
 					}
 				} else {
 					int penalty = MISMATCH_PENALTY;
@@ -84,11 +91,13 @@ static const int COST_TO_CHOOSE = 1;
 					card.chosen = YES;
 					for (Card *otherCard in chosenCards) {
 						otherCard.chosen = NO;
+                        self.gameLog = [NSString stringWithFormat:@"Cards%@ and%@ are do not match, you lose %i points", card, otherCard, MISMATCH_PENALTY];
 					}
 				}
 			} else {
 				self.score -= COST_TO_CHOOSE;
 				card.chosen = YES;
+                self.gameLog = [NSString stringWithFormat:@"You opened the card %@, you lose %i points",card, COST_TO_CHOOSE];
 			}
 		}
 	}

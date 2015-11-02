@@ -26,4 +26,8 @@
     return score;
 }
 
+- (NSString *)description{
+    return [NSString stringWithFormat:@"%@",[self contents]];
+}
+
 @end

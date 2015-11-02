@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) Game *game;
 @property (weak, nonatomic) IBOutlet UILabel *currentScore;
+@property (weak, nonatomic) IBOutlet UILabel *gameLog;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
 @end
@@ -23,8 +24,7 @@
 
 - (Game *)game {
 	if (!_game) {
-		_game = [[Game alloc] initWithCardCount:[self.cardButtons count]
-									  usingDeck:[[PlayingCardDeck alloc] init]];
+		_game = [[Game alloc] initWithCardCount:[self.cardButtons count]usingDeck:[[PlayingCardDeck alloc] init]];
 	}
 	return _game;
 }
@@ -45,6 +45,7 @@
 		[cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
 		[cardButton setBackgroundImage:[self backgroundImageForCard:card]forState:UIControlStateNormal];
         self.currentScore.text = [NSString stringWithFormat:@"Your score : %ld", (long)self.game.score];
+        self.gameLog.text = [self.game gameLog];
 		cardButton.enabled = !card.isMatched;
 	}
 }
