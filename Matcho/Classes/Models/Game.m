@@ -42,6 +42,7 @@
 			
 			if (card) {
 				[self.cards addObject:card];
+                NSLog(@"%@",card);
 			} else {
 				self = nil;
 				break;

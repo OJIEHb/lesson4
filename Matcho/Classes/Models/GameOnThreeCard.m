@@ -39,6 +39,21 @@ static const int COST_TO_CHOOSE = 1;
                 if([chosenCards count] == 2 ){
                     
                     int matchScore = [card match:chosenCards] + [chosenCards[0] match:@[chosenCards[1]]];
+                    switch (matchScore){
+                        case 1:
+                        case 2:
+                        case 4:
+                            matchScore = 0;
+                            break;
+                        case 3:
+                        case 7:
+                            matchScore *= 3;
+                            break;
+                        case 12:
+                        case 13:
+                            matchScore *= 5;
+                            break;
+                    }
                     if (matchScore < 5 && matchScore !=3){
                         matchScore = 0;
                         
