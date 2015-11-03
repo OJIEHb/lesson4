@@ -37,8 +37,12 @@ static const int COST_TO_CHOOSE = 1;
                     }
                 }
                 if([chosenCards count] == 2 ){
-                    int matchScore = [card match:chosenCards] + [chosenCards[0] match:@[chosenCards[1]]];
                     
+                    int matchScore = [card match:chosenCards] + [chosenCards[0] match:@[chosenCards[1]]];
+                    if (matchScore < 5 && matchScore !=3){
+                        matchScore = 0;
+                        
+                    }
                     if(matchScore){
                         self.score += (matchScore * MATCH_BONUS);
                         card.chosen = YES;
