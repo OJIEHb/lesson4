@@ -56,22 +56,35 @@
 
 
 -(int) match:(NSArray *)otherCards {
-	PlayingCard *card = [otherCards firstObject];
-	
-	if ([self.suit isEqualToString:card.suit]) {
-		return 1;
-	}
-	
-	if (self.rank == card.rank) {
-        if (([@[@"♣", @"♠"] containsObject:self.suit] && [@[@"♣", @"♠"] containsObject:card.suit])||
-            ([@[@"♦", @"♥"] containsObject:self.suit] && [@[@"♦", @"♥"] containsObject:card.suit])){
-            return 6;
+    int score = 0;
+    for(PlayingCard *card in otherCards){
+        if ([self.contents  isEqualToString: @"Joker"]||[card.contents isEqualToString:@"Joker"]) {
+            score += 7;
         }
-		return 4;
-	}
-	
-	return 0;
+        if([card isMemberOfClass:[Card class]]) {
+            score +=[super match:@[card]];
+        }
+        else{
+            if([self.contents isEqualToString:card.contents]){
+                score += 10;
+            }
+            else{
+                if ([self.suit isEqualToString:card.suit]) {
+                    score += 1;
+                }
+                if (self.rank == card.rank) {
+                    if (([@[@"♣", @"♠"] containsObject:self.suit] && [@[@"♣", @"♠"] containsObject:card.suit])||
+                        ([@[@"♦", @"♥"] containsObject:self.suit] && [@[@"♦", @"♥"] containsObject:card.suit])){
+                        score += 6;
+                    }
+                    score += 4;
+                }
+            }
+        }
+    }
+    return score;
 }
+
 
 
 @end

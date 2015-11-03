@@ -18,6 +18,7 @@
 		5C7387071BD534FD002CDAF3 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7387011BD534FD002CDAF3 /* Deck.m */; settings = {ASSET_TAGS = (); }; };
 		5C7387081BD534FD002CDAF3 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7387031BD534FD002CDAF3 /* PlayingCard.m */; settings = {ASSET_TAGS = (); }; };
 		5C7387091BD534FD002CDAF3 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7387051BD534FD002CDAF3 /* PlayingCardDeck.m */; settings = {ASSET_TAGS = (); }; };
+		EAC6CE9C1BE7BF0800F2C843 /* GameOnThreeCard.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC6CE9B1BE7BF0800F2C843 /* GameOnThreeCard.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		5C7387031BD534FD002CDAF3 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 		5C7387041BD534FD002CDAF3 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		5C7387051BD534FD002CDAF3 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		EAC6CE9A1BE7BF0800F2C843 /* GameOnThreeCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOnThreeCard.h; sourceTree = "<group>"; };
+		EAC6CE9B1BE7BF0800F2C843 /* GameOnThreeCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOnThreeCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				5C7387051BD534FD002CDAF3 /* PlayingCardDeck.m */,
 				5C6D992E1BDFF05B005F6FC8 /* Game.h */,
 				5C6D992F1BDFF05B005F6FC8 /* Game.m */,
+				EAC6CE9A1BE7BF0800F2C843 /* GameOnThreeCard.h */,
+				EAC6CE9B1BE7BF0800F2C843 /* GameOnThreeCard.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				5C7387091BD534FD002CDAF3 /* PlayingCardDeck.m in Sources */,
 				5C7386E71BD534CF002CDAF3 /* main.m in Sources */,
 				5C7387061BD534FD002CDAF3 /* Card.m in Sources */,
+				EAC6CE9C1BE7BF0800F2C843 /* GameOnThreeCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

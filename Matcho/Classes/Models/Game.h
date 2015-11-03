@@ -18,7 +18,10 @@
 - (void)chooseCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
 - (NSString *)gameLog;
-
-@property (nonatomic, readonly) NSInteger score;
+- (BOOL) gameEnd;
+- (BOOL) haveIsMatchedCard;
+- (NSMutableArray*)cards;
+- (void) gameLogSendMassage:(NSString *)massage;
+@property (nonatomic) NSInteger score;
 
 @end
